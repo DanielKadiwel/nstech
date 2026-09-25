@@ -1,0 +1,27 @@
+version: '3.4'
+
+services:
+  postgres_db:
+    image: postgres:15-alpine
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=OrderDb
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  api:
+    build:
+      context: .
+      dockerfile: Nstech.OrderService.Api/Dockerfile
+    environment:
+      - ConnectionStrings__DefaultConnection=Host=postgres_db;Port=5432;Database=OrderDb;Username=postgres;Password=postgres
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres_db
+
+volumes:
+  pgdata:
