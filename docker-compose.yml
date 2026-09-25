@@ -18,6 +18,7 @@ services:
       dockerfile: Nstech.OrderService.Api/Dockerfile
     environment:
       - ConnectionStrings__DefaultConnection=Host=postgres_db;Port=5432;Database=OrderDb;Username=postgres;Password=postgres
+      - ASPNETCORE_ENVIRONMENT=Development
     ports:
       - "8080:8080"
     depends_on:

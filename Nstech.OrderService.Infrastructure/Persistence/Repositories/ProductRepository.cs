@@ -30,6 +30,16 @@ public class ProductRepository : IProductRepository
             .ToListAsync(cancellationToken);
     }
 
+    public async Task<IEnumerable<Product>> GetAllAsync(CancellationToken cancellationToken = default)
+    {
+        return await _context.Products.AsNoTracking().ToListAsync(cancellationToken);
+    }
+
+    public async Task AddAsync(Product product, CancellationToken cancellationToken = default)
+    {
+        await _context.Products.AddAsync(product, cancellationToken);
+    }
+
     public void Update(Product product)
     {
         _context.Products.Update(product);
