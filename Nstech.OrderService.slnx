@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="Nstech.OrderService.Application/Nstech.OrderService.Application.csproj" />
+  <Project Path="Nstech.OrderService.Domain/Nstech.OrderService.Domain.csproj" />
+  <Project Path="Nstech.OrderService.Infrastructure/Nstech.OrderService.Infrastructure.csproj" />
+</Solution>
